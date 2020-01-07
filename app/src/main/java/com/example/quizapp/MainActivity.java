@@ -35,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        QuizModel myQuizModel = new QuizModel(R.string.q1, true);
+
 //
 //        View.OnClickListener myClickListener = new View.OnClickListener() {
 //            @Override
