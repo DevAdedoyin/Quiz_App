@@ -19,7 +19,9 @@ public class MainActivity extends AppCompatActivity {
         btnRight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Toast.makeText(getApplicationContext(), "btn True is tapped now!!!", Toast.LENGTH_LONG).show();
+
             }
         });
 
@@ -28,7 +30,9 @@ public class MainActivity extends AppCompatActivity {
         btnWrong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Toast.makeText(getApplicationContext(), "btn Wrong is tapped now!!!", Toast.LENGTH_LONG).show();
+
             }
         });
 //
