@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         btnRight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("MyApp", "btn True is tapped now!!!");
+                Toast.makeText(getApplicationContext(), "btn True is tapped now!!!", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         btnWrong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("MyApp", "btn Wrong is tapped now!!!");
+                Toast.makeText(getApplicationContext(), "btn Wrong is tapped now!!!", Toast.LENGTH_LONG).show();
             }
         });
 //
