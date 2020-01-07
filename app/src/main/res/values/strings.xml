@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Quiz App</string>
+
+    <string name="btntrue">True Button</string>
+    <string name="btnwrong">Wrong Button</string>
+    
+    <string name="correct_text">Correct!</string>
+    <string name="incorrect_text">Incorrect!</string>
+    <string name="first_score_text">0/10</string>
+    <string name="correct_toast_message">Great!</string>
+    <string name="incorrect_toast_message">Not good!</string>
+
+    <string name="q1">Animals that lay eggs don\'t have belly buttons.</string>
+    <string name="q2">Slugs have four noses.</string>
+    <string name="q3">Camels have three eyelids.</string>
+    <string name="q4">A bee has five eyelids.</string>
+    <string name="q5">Mosquitoes are attracted to people who just ate bananas.</string>
+    <string name="q6">Flamingos turn pink from eating shrimp.</string>
+    <string name="q7">Emus and kangaroos cannot walk backward.</string>
+    <string name="q8">All porcupines float in water.</string>
+    <string name="q9">Children tend to grow faster in the spring.</string>
+    <string name="q10">Termites eat through wood two times faster when listening to rock music!</string>
+</resources>
