@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                mEvaluateUserAnswer(true);
                 mUpdateQuestionOnButtonClick();
 
             }
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                mEvaluateUserAnswer(false);
                 mUpdateQuestionOnButtonClick();
 
             }
@@ -73,6 +75,16 @@ public class MainActivity extends AppCompatActivity {
         mQuizQuestion = questionCollection[mQuestionIndex].getQuestion();
         mTextQuestion.setText(mQuizQuestion);
 
+    }
+
+    private void mEvaluateUserAnswer(boolean userGuess){
+
+        boolean currentQuestionAnswer = questionCollection[mQuestionIndex].isAnswer();
+        if (currentQuestionAnswer == userGuess){
+            Toast.makeText(getApplicationContext(), R.string.correct_text, Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(getApplicationContext(), R.string.incorrect_text, Toast.LENGTH_LONG).show();
+        }
     }
 
 }
