@@ -1,7 +1,9 @@
 package com.example.quizapp;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -83,21 +85,33 @@ public class MainActivity extends AppCompatActivity {
     private  void mUpdateQuestionOnButtonClick(){
 
         mQuestionIndex = (mQuestionIndex + 1) % 10;
+        if (mQuestionIndex == 0){
+            AlertDialog.Builder quizAlert = new AlertDialog.Builder(this);
+            quizAlert.setCancelable(false);
+            quizAlert.setTitle("The quiz is finished");
+            quizAlert.setMessage("Your score is: " + mUserScore);
+            quizAlert.setPositiveButton("Exit Quiz", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                }
+            });
+            quizAlert.show();
+        }
         mQuizQuestion = questionCollection[mQuestionIndex].getQuestion();
         mTextQuestion.setText(mQuizQuestion);
         mProgressBar.incrementProgressBy(USER_PROG);
         mTextStats.setText(mUserScore + "");
-
     }
 
     private void mEvaluateUserAnswer(boolean userGuess){
 
         boolean currentQuestionAnswer = questionCollection[mQuestionIndex].isAnswer();
         if (currentQuestionAnswer == userGuess){
-            Toast.makeText(getApplicationContext(), R.string.correct_text, Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), R.string.correct_text, Toast.LENGTH_SHORT).show();
             mUserScore+=1;
         } else {
-            Toast.makeText(getApplicationContext(), R.string.incorrect_text, Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), R.string.incorrect_text, Toast.LENGTH_SHORT).show();
         }
     }
 
