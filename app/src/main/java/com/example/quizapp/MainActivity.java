@@ -13,11 +13,14 @@ import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
+    // Declaring instance variables(fields)
     private TextView mTextQuestion ;
     private Button btnRight;
     private Button btnWrong;
     private int mQuestionIndex;
+    private int mQuizQuestion;
 
+    // An array Instance variable of type QuizModel, which contains the needed quiestions
     private  QuizModel[] questionCollection = new QuizModel[]{
             new QuizModel(R.string.q1, true),
             new QuizModel(R.string.q2, false),
@@ -36,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Initializing the mTextQustion Variable
         mTextQuestion = findViewById(R.id.txtView1);
 
         QuizModel q1 = questionCollection[mQuestionIndex];
@@ -47,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(getApplicationContext(), "btn True is tapped now!!!", Toast.LENGTH_LONG).show();
+                mUpdateQuestionOnButtonClick();
 
             }
         });
@@ -57,9 +61,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(getApplicationContext(), "btn Wrong is tapped now!!!", Toast.LENGTH_LONG).show();
+                mUpdateQuestionOnButtonClick();
 
             }
         });
     }
+
+    private  void mUpdateQuestionOnButtonClick(){
+
+        mQuestionIndex = (mQuestionIndex + 1) % 10;
+        mQuizQuestion = questionCollection[mQuestionIndex].getQuestion();
+        mTextQuestion.setText(mQuizQuestion);
+
+    }
+
 }
