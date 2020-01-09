@@ -16,6 +16,9 @@ import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
+    private final String SCORE_KEY = "SCORE";
+    private final String INDEX_KEY = "INDEX";
+
     // Declaring instance variables(fields)
     private TextView mTextQuestion ;
     private TextView mTextStats;
@@ -49,7 +52,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if ( savedInstanceState != null){
+            mUserScore = savedInstanceState.getInt(SCORE_KEY);
+            mQuestionIndex = savedInstanceState.getInt(INDEX_KEY);
+        } else {
+            mUserScore = 0;
+            mQuestionIndex = 0;
+        }
+
         mTextStats = findViewById(R.id.txtView2);
+        mTextStats.setText(mUserScore + "");
         mProgressBar = findViewById(R.id.prog_bar);
 
         //Initializing the mTextQustion Variable
@@ -115,4 +127,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putInt(SCORE_KEY, mUserScore);
+        outState.putInt(INDEX_KEY, mQuestionIndex);
+
+    }
 }
