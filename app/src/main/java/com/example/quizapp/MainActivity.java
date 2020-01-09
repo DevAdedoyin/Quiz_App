@@ -109,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
             quizAlert.show();
+
         }
         mQuizQuestion = questionCollection[mQuestionIndex].getQuestion();
         mTextQuestion.setText(mQuizQuestion);
@@ -125,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Toast.makeText(getApplicationContext(), R.string.incorrect_text, Toast.LENGTH_SHORT).show();
         }
+
     }
 
     @Override
